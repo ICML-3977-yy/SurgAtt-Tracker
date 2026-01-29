@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="VL-SurgPT: Bridging Vision and Language for Surgical Point Tracking">
+  <meta name="keywords" content="VL-SurgPT">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bridging Vision and Language for Robust Context-Aware Surgical Point Tracking: The VL-SurgPT Dataset and Benchmark</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://deepmind.com">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://deepmind-tapir.github.io/">
+              TAPIR
+            </a>
+            <a class="navbar-item" href="https://robotap.github.io/">
+              RoboTAP
+            </a>
+            <a class="navbar-item" href="https://deepmind-tapir.github.io/blogpost.html">
+              TAPIR Blog Post
+            </a>
+            <a class="navbar-item" href="https://bootstap.github.io/">
+              BootsTAP
+            </a>
+            <a class="navbar-item" href="https://tapvid3d.github.io/">
+              TAPVid-3D
+            </a>
+            <a class="navbar-item" href="https://tap-next.github.io/">
+              TAPNext
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav> -->
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h2 class="title is-2 publication-title">Bridging Vision and Language for Robust Context-Aware Surgical Point Tracking: The VL-SurgPT Dataset and Benchmark</h2>
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://tinyurl.com/3am5674h"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://anonymous.4open.science/r/VL-SurgPT-code-35CE"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <div class="publication-video" style="padding-bottom: 55%">
+              <video id="teaser" autoplay controls muted loop playsinline height="100%">
+                <source src="https://storage.googleapis.com/dm-tapnet/tap_vid_zoom_v9.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p>
+              Visualization of TAP-Vid Dataset with Human Annotated Ground-Truth Point Tracks
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h3 class="title is-3">Abstract</h3>
+              <!-- 插入PDF图片，宽度100% -->
+              <div style="width:100%;margin-bottom:24px;">
+                <!-- 将 PDF embed 替换为图片展示 -->
+                <img src="static/images/introduction.jpg" alt="Visualization Figure" style="width:100%;display:block;margin-bottom:24px;"/>
+              </div>
+              <div class="content has-text-justified">
+                <p>
+                  Accurate point tracking in surgical environments remains challenging due to complex visual conditions, including smoke occlusion, specular reflections, and tissue deformation. While existing surgical tracking datasets provide coordinate information, they lack the semantic context necessary to understand tracking failure mechanisms.          
+                  We introduce VL-SurgPT, the first large-scale multimodal dataset that bridges visual tracking with textual descriptions of point status in surgical scenes. The dataset comprises 908 in vivo video clips, including 754 for tissue tracking (17,171 annotated points across five challenging scenarios) and 154 for instrument tracking (covering seven instrument types with detailed keypoint annotations).
+                  We establish comprehensive benchmarks using eight state-of-the-art tracking methods and propose TG-SurgPT, a text-guided tracking approach that leverages semantic descriptions to improve robustness in visually challenging conditions.
+                  Experimental results demonstrate that incorporating point status information significantly improves tracking accuracy and reliability, particularly in adverse visual scenarios where conventional vision-only methods struggle. By bridging visual and linguistic modalities, VL-SurgPT enables the development of context-aware tracking systems crucial for advancing computer-assisted surgery applications that can maintain performance even under challenging intraoperative conditions.
+              </div>
+            </div>
+          </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3">Dataset Introduction</h3>
+          <img src="static/images/dataset.jpg" alt="Dataset Visualization" style="width:100%;display:block;margin-bottom:16px;"/>
+          <div class="content has-text-justified" style="font-size:1rem;">
+            Data collection and annotation workflow for VL-SurgPT. (A) In vivo surgical setup using the da Vinci Xi system.
+            (B) Ground truth acquisition using Indocyanine Green (ICG) fluorescent markers under UV illumination. (C-D) Annotation
+            interface for point tracking and semantic labeling at 1 fps. (E) Coverage of 7 types of surgical instruments, 9 distinct visual
+            status descriptions, and 5 representative challenging scenarios across our dataset.
+          </div>
+          <img src="static/images/截屏2025-08-05 17.36.59.png" alt="Dataset Visualization" style="width:100%;display:block;margin-bottom:16px;"/>
+          <div class="content has-text-justified" style="font-size:1rem;">
+          Comprehensive comparison of public surgical point tracking datasets. VL-SurgPT is the first dataset to provide synchronized vision-language annotations for both tissue and instrument tracking in in vivo conditions. Recording Condition: ex vivo = controlled laboratory environment, in vivo = live surgical procedures. Marker Type: SW = manual software annotation, Beads = physical 2mm steel beads, IR = infrared contrast dye, UV = ultraviolet fluorescent dye. Annotation Level: V = vision-only coordinate annotations, VL = multimodal vision-language with semantic descriptions.          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3" id="annotation-workflow">Annotation Workflow</h3>
+          <div class="publication-video" style="position: relative; padding-bottom: 50%; height: 0; overflow: hidden;">
+            <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls autoplay muted loop>
+              <source src="static/video/annotation_workflow.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              The video above shows how we work with doctors to annotate 1fps videos. We use PYQT5 to create a software called <a href="https://github.com/polysulfone/EVA/">Endoscopic Video Annotator (EVA)</a> that can be used to annotate points on instruments and tissues in surgical scenes. On tissues, we mainly annotate at the junctions of blood vessels (where the visual effect is obvious). On instruments, we need to annotate key points, including the tip of the instrument, joints, main shaft, and 3-7 key points.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3" id="annotation-workflow">VL-SurgPT Dataset Visualization</h3>
+          <div class="publication-video" style="position: relative; padding-bottom: 50%; height: 0; overflow: hidden;">
+            <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls autoplay muted loop>
+              <source src="static/video/dataset_vis.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              Shows the location and status of our annotation points in 5 different surgical scenes and on 7 different instruments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3" id="annotation-workflow">Visualization of point tracking (Tissue)</h3>
+          <div class="publication-video" style="position: relative; padding-bottom: 50%; height: 0; overflow: hidden;">
+            <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls autoplay muted loop>
+              <source src="static/video/Tissue.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              We show the results of tissue point tracking using TG-SurgPT (Ours) (Blue), Track-On (Red), and MFT (Green) in five different scenarios. In particular, we selected some relatively long videos for visualization (about 6-20 seconds).            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3" id="annotation-workflow">Visualization of point tracking (Instrument)</h3>
+          <div class="publication-video" style="position: relative; padding-bottom: 50%; height: 0; overflow: hidden;">
+            <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls autoplay muted loop>
+              <source src="static/video/Instrument.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              We show the results of instrument point tracking using TG-SurgPT (Ours) (Blue), Track-On (Red), and MFT (Green) in five different scenarios.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    
+
+
+
+
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3">Licensing</h3>
+          <p>
+            The original dataset and annotations of VL-SurgTPT cannot be used for commercial purposes.
+      </div>
+
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-3">Related Links</h3>
+          <div class="content has-text-justified">
+            <p>
+              <a href="https://particle-video-revisited.github.io/">Particle Video Revisited: Tracking Through
+                Occlusions Using Point Trajectories</a> propose Persistent Independent Particles (PIPs), a new particle
+              video method that tracks any pixel over time.
+            </p>
+            <p>
+              <a href="https://github.com/google-research/kubric">Kubric: A scalable dataset generator</a> is a data generation pipeline for creating semi-realistic synthetic multi-object videos with rich annotations such as instance segmentation masks, depth maps, and optical flow.
+            </p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/abs/2211.03726">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/deepmind/tapnet" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+                International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/tapvid/tapvid.github.io">source
+                code</a> of this website, which itelf is a fork of <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We just ask that you link back to this
+              page in the footer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
