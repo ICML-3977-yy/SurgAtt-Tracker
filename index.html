@@ -175,7 +175,7 @@
 
           <h3 class="title is-3" id="annotation-workflow">SurgAtt-SZPH Result</h3>
 
-          <div class="publication-video" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; margin-bottom:16px;">
+          <div class="publication-video" style="position:relative; padding-bottom:28.32%; height:0; overflow:hidden; margin-bottom:16px;">
             <video style="position:absolute; top:0; left:0; width:100%; height:100%;" controls autoplay muted loop playsinline>
               <source src="long_video/SZPH.mp4" type="video/mp4">
               Your browser does not support the video tag.
@@ -184,9 +184,7 @@
 
           <div class="content has-text-justified">
             <p>
-              The video above shows how we work with doctors to annotate 1fps videos. We use PYQT5 to create a software called
-              <a href="https://github.com/polysulfone/EVA/">Endoscopic Video Annotator (EVA)</a>
-              that can be used to annotate points on instruments and tissues in surgical scenes...
+              Qualitative comparison of attention heatmap predictions on SurgAtt-SZPH across five surgical scenarios. SurgAtt-Tracker produces sharper and more stable attention aligned with clinically relevant regions compared with representative SOTA baselines.
             </p>
           </div>
 
@@ -197,53 +195,36 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h3 class="title is-3" id="annotation-workflow">Su Result</h3>
+          <h3 class="title is-3" id="annotation-workflow">SurgAtt-Hamlyn Result</h3>
           <div class="publication-video" style="position: relative; padding-bottom: 50%; height: 0; overflow: hidden;">
             <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls autoplay muted loop>
-              <source src="static/video/dataset_vis.mp4" type="video/mp4">
+              <source src="long_video/hamlym.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
           <div class="content has-text-justified">
             <p>
-              Shows the location and status of our annotation points in 5 different surgical scenes and on 7 different instruments.
-            </p>
+        Qualitative comparison on SurgAtt-Hamlyn under zero-shot and fine-tuning settings. SurgAtt-Tracker shows more stable and better-localized attention than RT-DETRv2 and YOLOv12 across both regimes.            </p>
           </div>
         </div>
       </div>
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h3 class="title is-3" id="annotation-workflow">Visualization of point tracking (Tissue)</h3>
+          <h3 class="title is-3" id="annotation-workflow">SurgAtt-AutoLaparo Result</h3>
           <div class="publication-video" style="position: relative; padding-bottom: 50%; height: 0; overflow: hidden;">
             <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls autoplay muted loop>
-              <source src="static/video/Tissue.mp4" type="video/mp4">
+              <source src="long_video/auto.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
           <div class="content has-text-justified">
             <p>
-              We show the results of tissue point tracking using TG-SurgPT (Ours) (Blue), Track-On (Red), and MFT (Green) in five different scenarios. In particular, we selected some relatively long videos for visualization (about 6-20 seconds).            </p>
-          </div>
+          Qualitative comparison on SurgAtt-AutoLaparo under zero-shot and fine-tuning settings. Our method maintains compact and consistent attention maps under domain shift and further improves after fine-tuning.          </div>
         </div>
       </div>
 
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h3 class="title is-3" id="annotation-workflow">Visualization of point tracking (Instrument)</h3>
-          <div class="publication-video" style="position: relative; padding-bottom: 50%; height: 0; overflow: hidden;">
-            <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls autoplay muted loop>
-              <source src="static/video/Instrument.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="content has-text-justified">
-            <p>
-              We show the results of instrument point tracking using TG-SurgPT (Ours) (Blue), Track-On (Red), and MFT (Green) in five different scenarios.
-            </p>
-          </div>
-        </div>
-      </div>
+    
 
     
 
@@ -255,7 +236,7 @@
         <div class="column is-four-fifths">
           <h3 class="title is-3">Licensing</h3>
           <p>
-            The original dataset and annotations of VL-SurgTPT cannot be used for commercial purposes.
+            The original dataset and annotations of SurgAtt-Tracker cannot be used for commercial purposes.
       </div>
 
       <!-- <div class="columns is-centered has-text-centered">
@@ -278,14 +259,14 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="content has-text-centered">
+      <!-- <div class="content has-text-centered">
         <a class="icon-link" href="https://arxiv.org/abs/2211.03726">
           <i class="fas fa-file-pdf"></i>
         </a>
         <a class="icon-link" href="https://github.com/deepmind/tapnet" class="external-link" disabled>
           <i class="fab fa-github"></i>
         </a>
-      </div>
+      </div> -->
       <div class="columns is-centered">
         <div class="column is-8">
           <div class="content">
